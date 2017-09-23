@@ -31,7 +31,11 @@ public class PostgreDmlWriter extends ADmlWriter {
 				}
 			} else if (col.getType().equals(
 					IConstants.POSTGRESQL_COLUMN_TYPE.NUMERIC)) {
-				Integer number = Integer.parseInt(row.get(col.getName()));
+				String text = row.get(col.getName());
+				Integer number = null;
+				if (text != null) {
+					number = Integer.parseInt(text);
+				}
 				insertSql.append(number);
 			}
 		}
