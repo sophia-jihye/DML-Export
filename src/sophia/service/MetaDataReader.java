@@ -7,13 +7,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import sophia.constants.IConstants;
 import sophia.domain.Column;
 
 public class MetaDataReader {
 	private Connection conn;
+	private String dbms;
 
-	public MetaDataReader(Connection conn) {
+	public MetaDataReader(Connection conn, String dbms) {
 		this.conn = conn;
+		this.dbms = dbms;
 	}
 
 	public List<Column> getTableColumnList(String tableName) {
@@ -21,11 +24,16 @@ public class MetaDataReader {
 
 		try {
 			DatabaseMetaData metaData = conn.getMetaData();
-			// if (IConstants.DBMS.ORACLE.equals(dbms)) {
-			tableName = tableName.toUpperCase();
-			// } else if (IConstants.DBMS.POSTGRESQL.equals(dbms)) {
-			// tableName = tableName.toLowerCase();
-			// }
+
+			switch (dbms) {
+			case IConstants.DBMS.ORACLE:
+				tableName = tableName.toUpperCase();
+				break;
+			case IConstants.DBMS.POSTGRESQL:
+				tableName = tableName.toLowerCase();
+				break;
+			}
+
 			ResultSet columnsResultSet = metaData.getColumns(null, null,
 					tableName, null);
 
@@ -57,7 +65,8 @@ public class MetaDataReader {
 				columnList.add(column);
 			}
 		} catch (SQLException e) {
-			System.out.println("Error occurred while getting metadata from database");
+			System.out
+					.println("Error occurred while getting metadata from database");
 		}
 
 		return columnList;

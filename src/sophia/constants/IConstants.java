@@ -17,4 +17,14 @@ public interface IConstants {
 		String VARCHAR2 = "VARCHAR2";
 		String NUMBER = "NUMBER";
 	}
+	
+	interface POSTGRESQL_COLUMN_TYPE {
+		String VARCHAR = "VARCHAR";
+		String NUMERIC = "NUMERIC";
+	}
+
+	interface DBMS {
+		String ORACLE = "oracle";
+		String POSTGRESQL = "postgresql";
+	}
 }

@@ -13,10 +13,11 @@ import sophia.service.MetaDataReader;
 import sophia.service.QueryProcessor;
 import sophia.service.SqlFormatter;
 import sophia.service.dmlwriter.ADmlWriter;
-import sophia.service.dmlwriter.OracleDmlWriter;
+import sophia.service.dmlwriter.DmlWriterFactory;
 
 public class ProcessHandler {
 
+	private String dbms;
 	private MetaDataReader meataDataReader;
 	private SqlFormatter sqlFormatter;
 	private QueryProcessor queryProcessor;
@@ -27,12 +28,13 @@ public class ProcessHandler {
 
 	public void processStart() {
 		System.out.println("==========START==========");
+		configureDbms();
 
 		Connection conn = DbConnectionManager.instance().getConnection();
-		meataDataReader = new MetaDataReader(conn);
+		meataDataReader = new MetaDataReader(conn, dbms);
 		sqlFormatter = new SqlFormatter();
 		queryProcessor = new QueryProcessor(conn);
-		dmlWriter = new OracleDmlWriter();
+		dmlWriter = DmlWriterFactory.getDmlWRiter(dbms);
 
 		String[] tables = ConfigManager.instance().getProperties()
 				.getProperty(IConstants.CONFIG_PROPERTY.TABLE)
@@ -66,6 +68,17 @@ public class ProcessHandler {
 		}
 
 		DbConnectionManager.instance().tryClose(rs, conn);
+	}
+
+	private void configureDbms() {
+		String driverClassName = ConfigManager.instance().getProperties()
+				.getProperty(IConstants.CONFIG_PROPERTY.DRIVER_CLASS_NAME);
+		if (driverClassName.indexOf(IConstants.DBMS.ORACLE) != -1) {
+			dbms = IConstants.DBMS.ORACLE;
+		} else if (driverClassName.indexOf(IConstants.DBMS.POSTGRESQL) != -1) {
+			dbms = IConstants.DBMS.POSTGRESQL;
+		}
+
 	}
 
 	public void prcoessEnd() {
