@@ -16,13 +16,13 @@ public class OracleDmlWriter extends ADmlWriter {
 		for (int i = 0; i < columnList.size(); i++) {
 
 			Column col = columnList.get(i);
+			String text = row.get(col.getName());
 			if (i != 0) {
 				insertSql.append(", ");
 			}
 			if (col.getType().equals(IConstants.ORACLE_COLUMN_TYPE.VARCHAR)
 					|| col.getType().equals(
 							IConstants.ORACLE_COLUMN_TYPE.VARCHAR2)) {
-				String text = row.get(col.getName());
 				if (text != null) {
 					insertSql.append("'");
 					text = text.replaceAll("'", "''");
@@ -33,7 +33,6 @@ public class OracleDmlWriter extends ADmlWriter {
 				}
 			} else if (col.getType().equals(
 					IConstants.ORACLE_COLUMN_TYPE.NUMBER)) {
-				String text = row.get(col.getName());
 				Integer number = null;
 				if (text != null) {
 					number = Integer.parseInt(text);

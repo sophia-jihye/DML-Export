@@ -25,14 +25,7 @@ public class MetaDataReader {
 		try {
 			DatabaseMetaData metaData = conn.getMetaData();
 
-			switch (dbms) {
-			case IConstants.DBMS.ORACLE:
-				tableName = tableName.toUpperCase();
-				break;
-			case IConstants.DBMS.POSTGRESQL:
-				tableName = tableName.toLowerCase();
-				break;
-			}
+			tableName = convertCaseOfTableName(tableName);
 
 			ResultSet columnsResultSet = metaData.getColumns(null, null,
 					tableName, null);
@@ -70,6 +63,16 @@ public class MetaDataReader {
 		}
 
 		return columnList;
+	}
+
+	private String convertCaseOfTableName(String tableName) {
+		switch (dbms) {
+		case IConstants.DBMS.ORACLE:
+			return tableName.toUpperCase();
+		case IConstants.DBMS.POSTGRESQL:
+			return tableName.toLowerCase();
+		}
+		return null;
 	}
 
 }
