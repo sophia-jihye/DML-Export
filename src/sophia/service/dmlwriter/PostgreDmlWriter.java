@@ -20,7 +20,7 @@ public class PostgreDmlWriter extends ADmlWriter {
 				insertSql.append(", ");
 			}
 			if (col.getType().equals(IConstants.POSTGRESQL_COLUMN_TYPE.VARCHAR)) {
-				String text = row.get(col.getName());
+				String text = row.get(col.getName().toLowerCase());
 				if (text != null) {
 					insertSql.append("'");
 					text = text.replaceAll("'", "''");
@@ -30,8 +30,10 @@ public class PostgreDmlWriter extends ADmlWriter {
 					insertSql.append("null");
 				}
 			} else if (col.getType().equals(
-					IConstants.POSTGRESQL_COLUMN_TYPE.NUMERIC)) {
-				String text = row.get(col.getName());
+					IConstants.POSTGRESQL_COLUMN_TYPE.NUMERIC)
+					|| col.getType().startsWith(
+							IConstants.POSTGRESQL_COLUMN_TYPE.INT)) {
+				String text = row.get(col.getName().toLowerCase());
 				Integer number = null;
 				if (text != null) {
 					number = Integer.parseInt(text);
