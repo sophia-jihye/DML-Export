@@ -9,29 +9,30 @@ import sophia.constants.IConstants;
 import sophia.domain.Column;
 import sophia.manager.ConfigManager;
 import sophia.manager.DbConnectionManager;
-import sophia.service.DmlWriter;
 import sophia.service.MetaDataReader;
 import sophia.service.QueryProcessor;
 import sophia.service.SqlFormatter;
+import sophia.service.dmlwriter.ADmlWriter;
+import sophia.service.dmlwriter.OracleDmlWriter;
 
 public class ProcessHandler {
 
 	private MetaDataReader meataDataReader;
 	private SqlFormatter sqlFormatter;
 	private QueryProcessor queryProcessor;
-	private DmlWriter dmlWriter;
+	private ADmlWriter dmlWriter;
 
 	public ProcessHandler() {
 	}
 
 	public void processStart() {
 		System.out.println("==========START==========");
-		
+
 		Connection conn = DbConnectionManager.instance().getConnection();
 		meataDataReader = new MetaDataReader(conn);
 		sqlFormatter = new SqlFormatter();
 		queryProcessor = new QueryProcessor(conn);
-		dmlWriter = new DmlWriter();
+		dmlWriter = new OracleDmlWriter();
 
 		String[] tables = ConfigManager.instance().getProperties()
 				.getProperty(IConstants.CONFIG_PROPERTY.TABLE)
@@ -56,7 +57,7 @@ public class ProcessHandler {
 			// 4. insertSql 포맷 만들기
 			String insertSqlFormat = sqlFormatter.makeInsertSqlFormat(
 					tableName, columnList);
-			
+
 			dmlWriter.writeDate();
 
 			// 5. insertSql Sql 만들어서 파일에 입력하기

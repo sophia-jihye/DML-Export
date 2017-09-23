@@ -8,7 +8,7 @@ public class DmlExtractorMain {
 		ConfigManager
 				.instance()
 				.loadProperties(
-						"C:\\DevelopTools\\Eclipse\\Workspace\\GIT\\DML-Extractor\\DML-Extractor\\config\\database.properties");
+						"C:\\DevelopTools\\Eclipse\\Workspace\\GIT\\DML-Export\\config\\database.properties");
 
 		ProcessHandler processHandler = new ProcessHandler();
 		processHandler.processStart();
