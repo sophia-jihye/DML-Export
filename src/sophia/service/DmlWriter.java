@@ -49,7 +49,6 @@ public class DmlWriter {
 					|| col.getType().equals(
 							IConstants.ORACLE_COLUMN_TYPE.VARCHAR2)) {
 				String text = row.get(col.getName());
-				// String text = rs.getString(col.getName());
 				if (text != null) {
 					insertSql.append("'");
 					text = text.replaceAll("'", "''");
