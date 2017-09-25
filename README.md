@@ -12,4 +12,4 @@ If you want to add another dbms, you have to modify followed source file: Proces
 	5) result-file-path : Full path of DML result file. (Ex. C:\\result.txt)
 	6) table : Information of tables which you want to export from. (Ex. BOOK, USER)
 2. You need to declare the configuration file path at 'configFilePath' in DmlExportMain.
-3. You check the result of DML in the result-file as you declared in the configuration file.
+3. You can check the result of DML in the result-file as you declared in the configuration file.
