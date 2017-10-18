@@ -27,5 +27,6 @@ public interface IConstants {
 	interface DBMS {
 		String ORACLE = "oracle";
 		String POSTGRESQL = "postgresql";
+		String TIBERO = "tibero";
 	}
 }

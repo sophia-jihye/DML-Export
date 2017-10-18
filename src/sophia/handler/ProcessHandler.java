@@ -75,6 +75,10 @@ public class ProcessHandler {
 				.getProperty(IConstants.CONFIG_PROPERTY.DRIVER_CLASS_NAME);
 		if (driverClassName.indexOf(IConstants.DBMS.ORACLE) != -1) {
 			dbms = IConstants.DBMS.ORACLE;
+		} else if (driverClassName.indexOf(IConstants.DBMS.TIBERO) != -1) {
+
+			// Detailed process of TIBERO is almost same with ORACLE.
+			dbms = IConstants.DBMS.ORACLE;
 		} else if (driverClassName.indexOf(IConstants.DBMS.POSTGRESQL) != -1) {
 			dbms = IConstants.DBMS.POSTGRESQL;
 		}
