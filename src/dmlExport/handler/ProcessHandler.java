@@ -1,19 +1,19 @@
-package sophia.handler;
+package dmlExport.handler;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
-import sophia.constants.IConstants;
-import sophia.domain.Column;
-import sophia.manager.ConfigManager;
-import sophia.manager.DbConnectionManager;
-import sophia.service.MetaDataReader;
-import sophia.service.QueryProcessor;
-import sophia.service.SqlFormatter;
-import sophia.service.dmlwriter.ADmlWriter;
-import sophia.service.dmlwriter.DmlWriterFactory;
+import dmlExport.constants.IConstants;
+import dmlExport.domain.Column;
+import dmlExport.manager.ConfigManager;
+import dmlExport.manager.DbConnectionManager;
+import dmlExport.service.MetaDataReader;
+import dmlExport.service.QueryProcessor;
+import dmlExport.service.SqlFormatter;
+import dmlExport.service.dmlwriter.ADmlWriter;
+import dmlExport.service.dmlwriter.DmlWriterFactory;
 
 public class ProcessHandler {
 

@@ -1,4 +1,4 @@
-package sophia.constants;
+package dmlExport.constants;
 
 public interface IConstants {
 

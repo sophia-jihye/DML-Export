@@ -1,8 +1,8 @@
-package sophia.service;
+package dmlExport.service;
 
 import java.util.List;
 
-import sophia.domain.Column;
+import dmlExport.domain.Column;
 
 public class SqlFormatter {
 

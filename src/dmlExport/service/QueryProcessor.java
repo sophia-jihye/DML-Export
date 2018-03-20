@@ -1,4 +1,4 @@
-package sophia.service;
+package dmlExport.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import sophia.manager.DbConnectionManager;
+import dmlExport.manager.DbConnectionManager;
 
 public class QueryProcessor {
 	private Connection conn;

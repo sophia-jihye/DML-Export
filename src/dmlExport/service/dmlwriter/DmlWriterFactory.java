@@ -1,6 +1,6 @@
-package sophia.service.dmlwriter;
+package dmlExport.service.dmlwriter;
 
-import sophia.constants.IConstants;
+import dmlExport.constants.IConstants;
 
 public class DmlWriterFactory {
 

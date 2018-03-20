@@ -1,4 +1,4 @@
-package sophia.service.dmlwriter;
+package dmlExport.service.dmlwriter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import sophia.constants.IConstants;
-import sophia.domain.Column;
-import sophia.manager.ConfigManager;
+import dmlExport.constants.IConstants;
+import dmlExport.domain.Column;
+import dmlExport.manager.ConfigManager;
 
 public abstract class ADmlWriter {
 

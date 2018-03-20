@@ -1,4 +1,4 @@
-package sophia.domain;
+package dmlExport.domain;
 
 public class Column {
 	private String name;

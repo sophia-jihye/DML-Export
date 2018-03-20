@@ -1,10 +1,10 @@
-package sophia.service.dmlwriter;
+package dmlExport.service.dmlwriter;
 
 import java.util.List;
 import java.util.Map;
 
-import sophia.constants.IConstants;
-import sophia.domain.Column;
+import dmlExport.constants.IConstants;
+import dmlExport.domain.Column;
 
 public class OracleDmlWriter extends ADmlWriter {
 

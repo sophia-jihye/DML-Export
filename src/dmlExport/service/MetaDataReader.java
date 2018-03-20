@@ -1,4 +1,4 @@
-package sophia.service;
+package dmlExport.service;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import sophia.constants.IConstants;
-import sophia.domain.Column;
+import dmlExport.constants.IConstants;
+import dmlExport.domain.Column;
 
 public class MetaDataReader {
 	private Connection conn;

@@ -1,4 +1,4 @@
-package sophia.manager;
+package dmlExport.manager;
 
 import java.io.Closeable;
 import java.sql.Connection;
@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import sophia.constants.IConstants;
+import dmlExport.constants.IConstants;
 
 public class DbConnectionManager {
 

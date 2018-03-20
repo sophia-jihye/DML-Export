@@ -1,7 +1,7 @@
-package sophia;
+package dmlExport;
 
-import sophia.handler.ProcessHandler;
-import sophia.manager.ConfigManager;
+import dmlExport.handler.ProcessHandler;
+import dmlExport.manager.ConfigManager;
 
 public class DmlExportMain {
 	public static void main(String[] args) {
