@@ -1,5 +1,5 @@
 # DML-Export
-It generates 'insert' DML from database, and now only Oracle and PostgreSQL are allowed.
+It generates 'insert' DML from database, and now only Oracle, Tibero, and PostgreSQL are allowed.
 If you want to add another dbms, you have to modify followed source file: ProcessHandler.java, DmlWriterFactory.java
 
 * Steps
